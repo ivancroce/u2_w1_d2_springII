@@ -1,11 +1,7 @@
 package ictech.u2_w1_d2_springII;
 
-import ictech.u2_w1_d2_springII.entities.Drink;
-import ictech.u2_w1_d2_springII.entities.Pizza;
-import ictech.u2_w1_d2_springII.entities.Topping;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootApplication
 public class U2W1D2SpringIiApplication {
@@ -14,11 +10,11 @@ public class U2W1D2SpringIiApplication {
 
         SpringApplication.run(U2W1D2SpringIiApplication.class, args);
 
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigClass.class);
+        /*AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigClass.class);
 
         System.out.println();
         System.out.println("********** Pizzeria by Aldo Baglio **********");
-        System.out.println();
+        System.out.println();*/
         /*Menu menu = ctx.getBean("menu", Menu.class);
 
         System.out.println("********** MENU **********");
@@ -40,7 +36,7 @@ public class U2W1D2SpringIiApplication {
         }*/
 
         // no menu class, same as lesson, more code:
-        System.out.println("********** MENU **********");
+        /*System.out.println("********** MENU **********");
         System.out.println("----- Pizza -----");
         Pizza margherita = ctx.getBean("pizzaMargherita", Pizza.class);
         System.out.println(margherita.getName() + " - Calories: " + margherita.getCalories() + " - Price: " + margherita.getPrice());
@@ -82,7 +78,7 @@ public class U2W1D2SpringIiApplication {
         Drink drinkWine = ctx.getBean("drinkWine", Drink.class);
         System.out.println(drinkWine.getName() + " - Calories: " + drinkWine.getCalories() + " - Price: " + drinkWine.getPrice());
 
-        ctx.close();
+        ctx.close();*/
     }
 
 }

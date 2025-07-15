@@ -24,4 +24,6 @@ public abstract class MenuItem {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public abstract String getName();
 }

@@ -1,15 +1,14 @@
 package ictech.u2_w1_d2_springII;
 
-import ictech.u2_w1_d2_springII.entities.Drink;
-import ictech.u2_w1_d2_springII.entities.Menu;
-import ictech.u2_w1_d2_springII.entities.Pizza;
-import ictech.u2_w1_d2_springII.entities.Topping;
+import ictech.u2_w1_d2_springII.entities.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import java.util.List;
 
 @Configuration // mandatory annotation to tell Spring that this class contains Beans
+@PropertySource("application.properties") // to read values
 public class ConfigClass {
     // list of obj needed when starting the app
 
@@ -40,6 +39,11 @@ public class ConfigClass {
     }
 
     // ----- Pizza -----
+
+    // Use @Bean when you need explicit control over object creation, especially if you want to create multiple different variants from the same class.
+    // You tell Spring how to create the object.
+    // This method creates a Pizza object and registers it as a "Bean" in the Spring container.
+    // It will be created at startup and can be injected elsewhere using @Autowired.
     @Bean
     public Pizza pizzaMargherita() {
         return new Pizza(1104, 4.99, "Pizza Margherita");
@@ -85,4 +89,26 @@ public class ConfigClass {
 
         return new Menu(pizzaList, toppingList, drinkList);
     }*/
+
+    // create bean to read the cover charge value, as the main can't read it
+    /*@Bean
+    public double getCoverCharge(@Value("${cover.charge}") double coverCharge) {
+        return coverCharge;
+    }*/
+
+    // Tables
+    @Bean
+    public Table table1() {
+        return new Table(1, 4, false);
+    }
+
+    @Bean
+    public Table table2() {
+        return new Table(2, 6, false);
+    }
+
+    @Bean
+    public Table table3() {
+        return new Table(3, 2, false);
+    }
 }
